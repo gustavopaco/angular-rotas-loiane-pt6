@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {CursosService} from "../cursos/cursos.service";
 
 @Component({
   selector: 'app-curso-detalhe',
@@ -9,11 +10,12 @@ import {Subscription} from "rxjs";
 })
 export class CursoDetalheComponent implements OnInit, OnDestroy {
 
-  id: string | null = "";
+  id: Number = 0;
+  curso: any;
   inscricao: Subscription;
 
   /* IMPORTANT: ActivatedRoute, responsavel por detectar quando a rota desse componente esta ativa e receber parametros via Path na URL => usuario/1 */
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private cursosService: CursosService, private router: Router) {
     this.inscricao = new Subscription();
   }
 
@@ -21,7 +23,14 @@ export class CursoDetalheComponent implements OnInit, OnDestroy {
     // this.id = this.route.snapshot.params['id'];
     // this.id = this.route.snapshot.paramMap.get("id");
     // this.id = this.route.snapshot.params.id;
-    this.inscricao = this.route.params.subscribe((response : any) => this.id = response["id"])
+    this.inscricao = this.route.params.subscribe((response : any) => {
+      this.id = response["id"];
+      this.curso = this.cursosService.getCurso(this.id)
+      if (this.curso === null) {
+        this.router.navigate(["/naoEncontrado"])
+      }
+    })
+
   }
 
   /* IMPORTANT: Como boa pratica, deve-se criar uma variavel do tipo Subscription para receber a chamada do subscribe (de um servico por exemplo)
