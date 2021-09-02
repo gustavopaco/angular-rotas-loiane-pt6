@@ -1,12 +1,17 @@
 <nav>
+  <!--IMPORTANT: routerLink responsavel por direcionar para a URI escolhida;
+        routerLinkActive, responsavel por ativar classe CSS na rota ativa;-->
   <div class="nav-wrapper">
     <a class="brand-logo right" [routerLink]="[ '/' ]">Rotas ng2</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li [routerLinkActive]="[ 'active' ]"><a [routerLink]="[ '/login' ]">Login</a></li>
       <li [routerLinkActive]="[ 'active' ]"><a [routerLink]="[ '/cursos' ]">Cursos</a></li>
+      <li [routerLinkActive]="[ 'active' ]"><a [routerLink]="['curso',cursoID]">Curso com ID</a></li>
     </ul>
   </div>
 </nav>
 <div class="container">
+  <p>Entre com o id do curso</p>
+  <input [(ngModel)]="cursoID">
 <router-outlet></router-outlet>
 </div>
