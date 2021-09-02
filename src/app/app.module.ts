@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app.routing.module";
 import {CursosModule} from "./cursos/cursos.module";
+import {AlunosModule} from "./alunos/alunos.module";
 // import {routing} from "./app.routing";
 //import { CursosComponent } from './cursos/cursos.component';
 //import { CursoDetalheComponent } from './cursos/curso-detalhe/curso-detalhe.component';
@@ -25,7 +26,8 @@ import {CursosModule} from "./cursos/cursos.module";
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    CursosModule
+    CursosModule,
+    AlunosModule
     // routing,
   ],
   providers: [],
