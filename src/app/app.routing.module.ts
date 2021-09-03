@@ -11,11 +11,11 @@ import {CursosGuard} from "./guards/cursos.guard";
 // import {CursoNaoEncontradoComponent} from "./cursos/curso-nao-encontrado/curso-nao-encontrado.component";
 
 const appRoutes: Routes = [
-  {path: "cursos", loadChildren: () => import("./cursos/cursos.module").then(mod => mod.CursosModule), canActivate: [AuthGuard], canActivateChild: [CursosGuard]},
-  {path: "alunos", loadChildren: () => import("./alunos/alunos.module").then(mod => mod.AlunosModule), canActivate: [AuthGuard]},
+  {path: "cursos", loadChildren: () => import("./cursos/cursos.module").then(mod => mod.CursosModule), canActivate: [AuthGuard], canActivateChild: [CursosGuard], canLoad : [AuthGuard]},
+  {path: "alunos", loadChildren: () => import("./alunos/alunos.module").then(mod => mod.AlunosModule), canActivate: [AuthGuard], canLoad : [AuthGuard]},
   {path: "login", component: LoginComponent},
-  {path: "", component: HomeComponent, canActivate:[AuthGuard]},
-  {path: "**", component: HomeComponent, canActivate:[AuthGuard]}
+  {path: "", component: HomeComponent, canActivate:[AuthGuard], canLoad : [AuthGuard]},
+  {path: "**", component: HomeComponent, canActivate:[AuthGuard], canLoad : [AuthGuard]}
   // {path: "cursos", component: CursosComponent},
   // {path: "curso/:id", component: CursoDetalheComponent},
   // {path: "naoEncontrado", component: CursoNaoEncontradoComponent}
