@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {AlunosService} from "../alunos.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {IFormDeactivated} from "../../guards/iform-deactivated";
 
 @Component({
   selector: 'app-aluno-form',
   templateUrl: './aluno-form.component.html',
   styleUrls: ['./aluno-form.component.scss']
 })
-export class AlunoFormComponent implements OnInit {
+export class AlunoFormComponent implements OnInit, IFormDeactivated {
 
   aluno: any = {};
   inscricao: Subscription
@@ -42,5 +43,9 @@ export class AlunoFormComponent implements OnInit {
       }
     }
       return false;
+  }
+
+  podeDesativar(): boolean {
+    return this.podeMudarRota();
   }
 }
