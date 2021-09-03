@@ -1,8 +1,8 @@
 <div class="collection">
   <h2>Lista de Cursos</h2>
   <p>Pagina: {{ page }}</p>
-  <!--IMPORTANT: RouterLink em caso de LazyLoading pode se usar ="curso/, item.id"  OU ="/cursos/curso/, item.id"-->
-  <a class="collection-item" *ngFor="let item of cursos; index as i" [routerLink]="['/cursos/curso/', item.id]">
+  <!--IMPORTANT: RouterLink em caso de LazyLoading pode se usar ="cursos/, item.id"  OU ="item.id"-->
+  <a class="collection-item" *ngFor="let item of cursos; index as i" [routerLink]="['/cursos/', item.id]">
     ID: {{ item.id }} - Nome: {{ item.nome }}
   </a>
   <button (click)="nextPage()">Proxima Pagina</button>

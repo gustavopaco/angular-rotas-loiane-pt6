@@ -35,6 +35,6 @@ export class CursosComponent implements OnInit, OnDestroy {
     this.router.navigate(["/cursos"], {queryParams: {"pagina": ++this.page}})
 
     /* IMPORTANT: Navegando para a rota PATH => "locahost:4200/cursos/this.page"*/
-    // this.router.navigate(["/curso/", ++this.page])
+    // this.router.navigate(["/cursos/", ++this.page])
   }
 }

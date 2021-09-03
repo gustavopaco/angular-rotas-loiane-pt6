@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app.routing.module";
-import {AlunosModule} from "./alunos/alunos.module";
+// import {AlunosModule} from "./alunos/alunos.module";
 // import {CursosModule} from "./cursos/cursos.module";
 // import {routing} from "./app.routing";
 //import { CursosComponent } from './cursos/cursos.component';
@@ -27,7 +27,7 @@ import {AlunosModule} from "./alunos/alunos.module";
     BrowserModule,
     FormsModule,
     // CursosModule,
-    AlunosModule
+    // AlunosModule
     // routing,
   ],
   providers: [],
