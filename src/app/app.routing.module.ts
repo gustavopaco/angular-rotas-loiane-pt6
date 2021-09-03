@@ -7,8 +7,9 @@ import {LoginComponent} from "./login/login.component";
 // import {CursoNaoEncontradoComponent} from "./cursos/curso-nao-encontrado/curso-nao-encontrado.component";
 
 const appRoutes: Routes = [
-  {path: "", component: HomeComponent},
-  {path: "login", component: LoginComponent}
+  {path: "cursos", loadChildren: () => import("./cursos/cursos.module").then(mod => mod.CursosModule)},
+  {path: "login", component: LoginComponent},
+  {path: "", component: HomeComponent}
   // {path: "cursos", component: CursosComponent},
   // {path: "curso/:id", component: CursoDetalheComponent},
   // {path: "naoEncontrado", component: CursoNaoEncontradoComponent}
