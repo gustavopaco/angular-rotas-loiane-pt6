@@ -30,4 +30,8 @@ export class LoginService {
       this.mostrarMenuEmitter.emit(false);
     }
   }
+
+  isUsuarioAutenticado() {
+    return this.usuarioAutenticado;
+  }
 }
