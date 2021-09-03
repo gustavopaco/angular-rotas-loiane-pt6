@@ -16,9 +16,9 @@ const appRoutes: Routes = [
   {path: "alunos", loadChildren: () => import("./alunos/alunos.module").then(mod => mod.AlunosModule), canActivate: [AuthGuard], canLoad : [AuthGuard]},
   {path: "login", component: LoginComponent},
   {path: "", component: HomeComponent, canActivate:[AuthGuard], canLoad : [AuthGuard]},
-  {path: "**", component: PaginaNaoEncontradaComponent /*, canActivate:[AuthGuard], canLoad : [AuthGuard]
-    IMPORTANT: Descomentar *(canActivate e canLoad) acima, caso queira que ao tentar acessar URL nao existente redirecione para /login */
-  }
+  /*{path: "", redirectTo: "/home", pathMatch: "full"}, Note: Descomentar caso queira setar uma URI /home -> E alterar Path acima de "" para home*/
+  {path: "**", component: PaginaNaoEncontradaComponent /*, canActivate:[AuthGuard], canLoad : [AuthGuard]*/}
+  /* IMPORTANT: Descomentar *(canActivate e canLoad) ACIMA, caso queira que ao tentar acessar URL nao existente redirecione para /login */
   // {path: "cursos", component: CursosComponent},
   // {path: "curso/:id", component: CursoDetalheComponent},
   // {path: "naoEncontrado", component: CursoNaoEncontradoComponent}
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {useHash: true})  /* Note: Caso queira que no PATH da URL adicione o # antes para que o Servidor de aplicacao consiga identificar uma chamada REST*/
   ],
   exports: [RouterModule]
 })
